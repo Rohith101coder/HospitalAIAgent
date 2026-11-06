@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Appointment Rescheduled - MediDesk Hospital</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f7f9fc; margin: 0; padding: 20px; }
+        .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 2px solid #319795; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h1 { color: #319795; margin: 0; font-size: 24px; }
+        .ref-badge { background: #e6fffa; color: #234e52; padding: 8px 16px; border-radius: 4px; font-weight: bold; font-size: 18px; display: inline-block; margin: 15px 0; }
+        .details-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .details-table td { padding: 8px 0; border-bottom: 1px solid #edf2f7; }
+        .details-table td.label { font-weight: bold; color: #4a5568; width: 40%; }
+        .footer { margin-top: 30px; font-size: 12px; color: #718096; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>MediDesk Hospital</h1>
+            <p>Appointment Rescheduled Successfully</p>
+        </div>
+        <p>Dear <strong>{{ patient_name }}</strong>,</p>
+        <p>Your appointment has been successfully rescheduled to a new time slot.</p>
+        
+        <div style="text-align: center;">
+            <div class="ref-badge">Booking Ref: {{ reference }}</div>
+        </div>
+
+        <table class="details-table">
+            <tr><td class="label">Doctor:</td><td>{{ doctor_name }}</td></tr>
+            <tr><td class="label">Specialty:</td><td>{{ specialty_name }}</td></tr>
+            <tr><td class="label">New Date:</td><td><strong>{{ new_date }}</strong></td></tr>
+            <tr><td class="label">New Time:</td><td><strong>{{ new_time }}</strong></td></tr>
+            {% if old_date and old_time %}
+            <tr><td class="label">Previous Slot:</td><td style="color: #718096; text-decoration: line-through;">{{ old_date }} at {{ old_time }}</td></tr>
+            {% endif %}
+        </table>
+
+        <p style="margin-top: 20px;">
+            Please arrive 15 minutes before your new consultation time.
+        </p>
+
+        <div class="footer">
+            MediDesk Hospital &bull; Contact: {{ front_desk_email }}
+        </div>
+    </div>
+</body>
+</html>
+

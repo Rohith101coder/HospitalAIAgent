@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Appointment Reminder - MediDesk Hospital</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f7f9fc; margin: 0; padding: 20px; }
+        .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 2px solid #dd6b20; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h1 { color: #dd6b20; margin: 0; font-size: 22px; }
+        .details-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .details-table td { padding: 8px 0; border-bottom: 1px solid #edf2f7; }
+        .details-table td.label { font-weight: bold; color: #4a5568; width: 40%; }
+        .footer { margin-top: 30px; font-size: 12px; color: #718096; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>MediDesk Hospital</h1>
+            <p>Upcoming Appointment Reminder (Tomorrow)</p>
+        </div>
+        <p>Dear <strong>{{ patient_name }}</strong>,</p>
+        <p>This is a friendly reminder that you have a doctor consultation scheduled for tomorrow:</p>
+
+        <table class="details-table">
+            <tr><td class="label">Reference:</td><td>{{ reference }}</td></tr>
+            <tr><td class="label">Doctor:</td><td>{{ doctor_name }}</td></tr>
+            <tr><td class="label">Specialty:</td><td>{{ specialty_name }}</td></tr>
+            <tr><td class="label">Date:</td><td>{{ appointment_date }}</td></tr>
+            <tr><td class="label">Time:</td><td>{{ appointment_time }}</td></tr>
+            <tr><td class="label">Location:</td><td>OPD Block, MediDesk Hospital</td></tr>
+        </table>
+
+        <p style="margin-top: 20px; font-size: 14px;">
+            Please remember to carry previous medical reports and arrive 15 minutes before your slot.
+        </p>
+
+        <div class="footer">
+            MediDesk Hospital &bull; Contact: {{ front_desk_email }}
+        </div>
+    </div>
+</body>
+</html>
+
